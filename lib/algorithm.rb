@@ -19,7 +19,6 @@ module Algorithm
     @gold_file_guess = @guess.clone
     @gold_file_feedback = @feedback.clone
     @round += 1
-    show_board
   end
   
   # Take a random permutation that survived our previous culling of permutations and make it the new guess
@@ -41,6 +40,5 @@ module Algorithm
     end
     @set = keepers
     initialize_new_round
-  end
-   
+  end 
 end
