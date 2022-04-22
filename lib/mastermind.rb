@@ -52,7 +52,9 @@ class Mastermind
   def calculate_matches(command, guess_candidate, code_candidate)
     correct_place_and_value = 0
     correct_value_only = 0
-    # Make two clones on the input so 1. we do not alter the input 2. when we alter the first clone, it does not affect our matching algorithm
+    # Make two clones on the input so that:
+    # 1. We do not alter the input 
+    # 2. When we alter the first clone, it does not affect our matching algorithm
     temp_code = code_candidate.clone.join().chars
     temp_code_unaltered = code_candidate.clone.join().chars
     temp_guess = guess_candidate.clone.join().chars
