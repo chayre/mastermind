@@ -224,6 +224,6 @@ class Breaker < Mastermind
 end
 
 CreatorGame = Creator.new('Alice')
-#CreatorGame.play
+CreatorGame.play
 BreakerGame = Breaker.new('Bob')
-BreakerGame.play
+#BreakerGame.play
