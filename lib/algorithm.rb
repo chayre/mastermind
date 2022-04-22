@@ -1,6 +1,6 @@
 # This is an implementation of Donald Knuth's algorithm. 
 # We make a set of all possible code permutations, then pretend our code was the solution.
-# Compare each permutation against the imaginary feedback if our previous guess was the solution. 
+# Compare each permutation against the imaginary feedback that would be generated if our previous guess was the solution. 
 # If the new imaginary feedback does not match the previous guess' feedback, we remove that permutation from the set.
 # Repeat with a random guess that is still in the set.
 module Algorithm

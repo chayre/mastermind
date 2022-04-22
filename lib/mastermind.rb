@@ -3,7 +3,7 @@
 require_relative 'algorithm'
 require_relative 'rules'
 
-# Placeholder comment
+# Class which defines how the Mastermind board is shown and defines some methods for checking guesses that will be used in the breaker and creator modes
 class Mastermind
   attr_accessor :mode, :round, :board, :code, :guess, :feedback, :set, :gold_file_guess, :gold_file_feedback, :bad_index
 
@@ -36,8 +36,8 @@ class Mastermind
   # Construct the feedback array by counting how many matches there are for each condition and adding the appropriate symbol to the feedback array
   def generate_feedback(guess_candidate, code_candidate)
     @feedback = []
-    matches = calculate_matches("Exact", guess_candidate, code_candidate)
-    near_matches = calculate_matches("Near", guess_candidate, code_candidate)
+    matches = calculate_matches(guess_candidate, code_candidate)[0]
+    near_matches = calculate_matches(guess_candidate, code_candidate)[1]
     matches.times do
       @feedback.push('X')
     end
@@ -49,7 +49,8 @@ class Mastermind
     end
   end
   
-  def calculate_matches(command, guess_candidate, code_candidate)
+  # Calculate exact matches and near matches; return an array with the number of each
+  def calculate_matches(guess_candidate, code_candidate)
     correct_place_and_value = 0
     correct_value_only = 0
     # Make two clones on the input so that:
@@ -74,8 +75,7 @@ class Mastermind
         temp_code.delete_at(temp_code.index(i))
       end
     end
-    return correct_place_and_value if command == "Exact"
-    return correct_value_only if command == "Near"
+    return [correct_place_and_value, correct_value_only]
   end
 end
 
