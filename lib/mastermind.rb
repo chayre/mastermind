@@ -26,7 +26,7 @@ class Mastermind
   def show_board
     puts "\n"
     puts '    ┌─────────┬───────┬───────┐'
-    puts "    │ ROUND #{@round} │ GUESS │ FDBAK │"
+    puts @round > 9 ? "    │ ROUND #{@round}│ GUESS │ FDBAK │" : "    │ ROUND #{@round} │ GUESS │ FDBAK │"
     puts '    └─────────┼───────┼───────┤'
     puts @board.join(' ')
     puts '              └───────┴───────┘'
